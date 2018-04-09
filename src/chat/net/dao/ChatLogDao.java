@@ -11,22 +11,24 @@ import java.sql.SQLException;
 public class ChatLogDao {
     static Connection conn;
     static PreparedStatement ps; 
-    public static boolean addChatLog(ChatLogs cl) throws SQLException
+    public static boolean addChatLog(ChatLogs clogs) throws SQLException
     {
         conn = DbUtil.getConnection();
         ps = conn.prepareStatement("insert into chatlogs values(?,?,?)");
         
-        ChatLogs clogs = new ChatLogs();
+        
         String userName = clogs.getUserName();
         String msg  = clogs.getMessage();
         String msgTime = clogs.getMsgTime();
         
+        System.out.println(clogs);
         ps.setString(1,userName);
         ps.setString(2,msg);
         ps.setString(3,msgTime);
         
         int ans = ps.executeUpdate();
 
+        System.out.println(ans);
         return ans!=0;
     }
 }

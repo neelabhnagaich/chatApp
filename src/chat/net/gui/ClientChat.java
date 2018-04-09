@@ -1,4 +1,4 @@
-/*
+  /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -56,7 +56,6 @@ public class ClientChat extends javax.swing.JFrame {
 
         jLabel2.setText("Type Your Msg Here");
 
-        txtMsg.setText("jTextField1");
         txtMsg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMsgActionPerformed(evt);

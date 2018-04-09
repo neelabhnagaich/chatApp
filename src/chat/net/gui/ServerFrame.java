@@ -1,6 +1,8 @@
 
 package chat.net.gui;
 
+import chat.net.dao.ChatLogDao;
+import chat.net.pojo.ChatLogs;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -312,11 +314,28 @@ public class WaitForConnectionThread extends Thread
                                 {
                                     if(msg.equalsIgnoreCase("quit")==false)
                                     {   fpw.println(name+" "+msg+"("+ sdf.format(new Date()) + ")");
-                                        System.out.println("hiiii");
-                                    }
+                                       
+                                    
+                                    ChatLogs clgs = new ChatLogs();
+                       clgs.setMessage(msg);
+                      clgs.setMsgTime(sdf.format(new Date()) );
+                      clgs.setUserName(name);
+                      try{
+                     boolean b = ChatLogDao.addChatLog(clgs);
+                     if(b==true)
+                     {
+                         System.out.println("enterd succesfuleyy");
+                     }
+                    
+                     
+                      }
+                      catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
                                 }
                         
-                       
+                        }
+                            
                         for(PrintWriter writer : printWriters)
                         {
                             

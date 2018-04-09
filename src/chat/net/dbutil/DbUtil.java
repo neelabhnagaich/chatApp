@@ -16,7 +16,7 @@ public class DbUtil {
         try{
             Class.forName("oracle.jdbc.OracleDriver");
             
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@//LAPTOP-F43VIA2V:1521/xe","project","java");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@//localhost:1521/xe","chatapp","chat");
             
            }
         catch(ClassNotFoundException c)
